@@ -13,7 +13,8 @@
   None
 
   .EXAMPLE
- 
+
+  None
 
   .INPUTS
 
@@ -21,7 +22,8 @@
 
   .OUTPUTS
 
-
+  \Backup\GroupName_Membership_DateandTime.txt
+  \Logs\ErrorLog_DateandTime.txt
 
   .NOTES
 
