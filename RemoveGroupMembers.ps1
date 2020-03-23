@@ -55,8 +55,8 @@ $ErrorLog     = $LogDir + "\ErrorLog_$((Get-Date -format yyyy-MMM-dd-ddd` hh-mm`
 # Email Variables
 
 $EmailTo      = "EmailRecipient@company.com"
-$EmailFrom    = "Emailfrom@compay.com"
-$SmptServer   = "Smtpserver.company.com"
+$EmailFrom    = "EmailFrom@company.com"
+$SmptServer   = "SmtpServer.company.com"
 
 # Set Script location
 
