@@ -1,6 +1,6 @@
 # BackUpAndEmptyGroup
 
-Export Members of an AD Group to file and then empty the group 
+Export Members of an AD Group to file and then empty the group
 
 I was asked by a client to empty the membership of a particular group every night at midnight. I wrote this and
 used a Scheduled Task to run it everynight at 23:59.
