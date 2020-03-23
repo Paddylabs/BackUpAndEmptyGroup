@@ -52,6 +52,12 @@ $LogDir       = $ScriptDir + "\Logs"
 $ExportTofile = $BackUpDir + "\$GroupName" + "_Membership_$((Get-Date -format yyyy-MMM-dd-ddd` hh-mm` tt).ToString()).txt"
 $ErrorLog     = $LogDir + "\ErrorLog_$((Get-Date -format yyyy-MMM-dd-ddd` hh-mm` tt).ToString()).txt"
 
+# Email Variables
+
+$EmailTo      = "EmailRecipient@company.com"
+$EmailFrom    = "Emailfrom@compay.com"
+$SmptServer   = "Smtpserver.company.com"
+
 # Set Script location
 
 Set-Location $ScriptDir
@@ -91,14 +97,13 @@ Get-ChildItem -Path $LogDir BackUpDir -Filter *.txt | Where-Object { ((Get-Date)
 
 if ($FailureCount -ge 1) {
 
-$FailureEmailSplat = @{
-
-    To         = "user@Company.com"
+  $FailureEmailSplat = @{
+    To         = $EmailTo
+    From       = $EmailFrom
+    SmtpServer = $SmptServer
     Subject    = "$GroupName group member removal results"
     Body       = "There was an error removing users from $GroupName. Please check the error log."
-    SmtpServer = "smtprelay.company.com"
-    From       = "NoReply@Company.com"
-
+        
 }
 
 Send-Mailmessage  @FailureEmailSplat
@@ -109,12 +114,12 @@ Else {
 
 $SuccessEmailSplat = @{
 
-    To         = "user@company.com"
+    To         = $EmailTo
+    From       = $EmailFrom
+    SmtpServer = $SmptServer
     Subject    = "$GroupName member removal results"
     Body       = "$SuccessCount Users removed from $GroupName"
-    SmtpServer = "smtprelay.company.com"
-    From       = "NoReply@Company.com"
-
+   
 }
 
 Send-Mailmessage  @SuccessEmailSplat
