@@ -64,6 +64,18 @@ $SmptServer   = "SmtpServer.company.com"
 
 Set-Location $ScriptDir
 
+# Check back up and Log directories exist and create if they dont
+
+if (!(Test-Path $BackUpDir )) {
+  New-Item -ItemType Directory -path $BackUpDir -Force
+
+}
+
+if (!(Test-Path $LogDir)) {
+  New-Item -ItemType Directory -Path $LogDir -Force
+  
+}
+
 # Export the current group membership to backup file
 
 $Members | Out-File $ExportTofile
