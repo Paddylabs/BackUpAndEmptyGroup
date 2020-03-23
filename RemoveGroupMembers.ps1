@@ -2,7 +2,7 @@
 
   .SYNOPSIS
 
-  Backs up and then empties the Conditional Access Bypass AD Group.
+  Backs up and then empties the AD Group Specified.
 
   .DESCRIPTION
 
